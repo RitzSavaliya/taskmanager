@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management App</title>
+    <title>TaskMaster</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="light">
     <div class="container">
         <header>
-            <h1>Task Management</h1>
+            <h1>TaskMaster</h1>
             <div class="theme-toggle-wrapper">
                 <span class="theme-icon">☀️</span>
                 <label class="theme-switch">
@@ -37,18 +37,27 @@
                         <option value="Work">Work</option>
                         <option value="Urgent">Urgent</option>
                     </select>
+                    <input type="date" id="task-due-date">
                 </div>
                 <button type="submit" class="btn btn-primary">Add Task</button>
             </form>
         </section>
         <section class="task-controls">
-            <select id="category-filter">
-                <option value="all">All Categories</option>
-                <option value="Personal">Personal</option>
-                <option value="Work">Work</option>
-                <option value="Urgent">Urgent</option>
+            <div class="filter-group">
+                <label>Categories:</label>
+                <label><input type="checkbox" class="category-filter" value="Personal" checked> Personal</label>
+                <label><input type="checkbox" class="category-filter" value="Work" checked> Work</label>
+                <label><input type="checkbox" class="category-filter" value="Urgent" checked> Urgent</label>
+            </div>
+            <select id="sort-by">
+                <option value="priority">Sort by Priority</option>
+                <option value="due-date">Sort by Due Date</option>
+                <option value="title">Sort by Title</option>
             </select>
             <input type="text" id="search-bar" placeholder="Search tasks...">
+            <button id="toggle-finished" class="btn btn-secondary">Show Finished Tasks</button>
+            <button id="clear-finished" class="btn btn-danger">Clear Finished</button>
+            <button id="export-tasks" class="btn btn-secondary">Export Tasks</button>
         </section>
         <div class="loader" id="loader"></div>
         <section class="task-list" id="task-list"></section>
