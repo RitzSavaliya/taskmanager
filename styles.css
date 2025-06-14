@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+body.dark {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#theme-toggle {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.notification {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff4444;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.task-form, .task-controls {
+    margin-bottom: 20px;
+}
+
+.task-form h2 {
+    margin-bottom: 10px;
+}
+
+#task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#task-form input, #task-form textarea, #task-form select, #task-form button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#task-form textarea {
+    resize: vertical;
+}
+
+.task-controls {
+    display: flex;
+    gap: 10px;
+}
+
+#category-filter, #search-bar {
+    padding: 10px;
+    font-size: 16px;
+    flex: 1;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+body.dark .task-item {
+    background-color: #444;
+    border-color: #555;
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-item button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.task-item.high-priority {
+    border-left: 5px solid #ff4444;
+}
+
+.task-item.medium-priority {
+    border-left: 5px solid #ffbb33;
+}
+
+.task-item.low-priority {
+    border-left: 5px solid #00C4B4;
+}
+
+@media (max-width: 600px) {
+    .task-controls {
+        flex-direction: column;
+    }
+}
